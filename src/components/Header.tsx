@@ -1,5 +1,5 @@
 import { useTheme as useNextTheme } from "next-themes";
-import { useTheme, Text, Switch, Container, Button } from "@nextui-org/react";
+import { useTheme, Switch, Container, Button } from "@nextui-org/react"
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
