@@ -1,15 +1,19 @@
 import { useTheme as useNextTheme } from "next-themes";
-import { useTheme, Text, Switch, Container, StyledCardHeader, Button } from "@nextui-org/react";
+import { useTheme, Text, Switch, Container, Button } from "@nextui-org/react";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const { isDark, type, theme } = useTheme();
+  const { isDark } = useTheme();
   const { setTheme } = useNextTheme();
-  console.log(theme?.colors.accents1)
+  const navigate = useNavigate()
+
+  const onNavigate = (path: any) => path.target.textContent !== 'Home' ? navigate(path.target.textContent) : navigate('/')
+
   return (
     <Container display="flex" justify="space-around" alignContent="center" style={{ height: '3rem' }}>
-      <Button light>Home</Button>
-      <Button light>Blog</Button>
-      <Button light>Bookshelf</Button>
+      <Button light onClick={onNavigate}>Home</Button>
+      <Button light onClick={onNavigate}>Blog</Button>
+      <Button light onClick={onNavigate}>Bookshelf</Button>
       <Switch
         checked={isDark}
         css={{ alignSelf: "center" }}

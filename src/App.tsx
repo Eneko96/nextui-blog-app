@@ -1,28 +1,21 @@
-import { Input, Text, Container, Row, Card, Spacer, Switch, useTheme } from '@nextui-org/react';
-import { useTheme as useNextTheme } from 'next-themes'
-import Header from './components/Header';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Home, BookShelf, Blog } from './pages'
+import Header from './components/Header'
 import './App.css'
+import { Spacer } from '@nextui-org/react'
 
 function App() {
 
   return (
-    <Container className='container' sm>
+    <Router>
       <Header />
-      <Spacer y={4} />
-      <Card color="primary">
-        <Row justify="center" align="center">
-          <Text h1 color="white" css={{ m: 0 }}>
-            Let's Introduce Yourself
-          </Text>
-        </Row>
-        <Spacer y={3} />
-        <Row css={{ gap: '1rem' }} justify='center'>
-          <Input placeholder='Kiwi Milan' clearable label='Your name' />
-          <Input type='email' placeholder='example@me.com' clearable label='Your email' />
-          <Input placeholder='Better short...' clearable label='Why are you here?' />
-        </Row>
-      </Card>
-    </Container>
+      <Spacer y={3} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Shelf" element={<BookShelf />} />
+        <Route path="/Blog" element={<Blog />} />
+      </Routes>
+    </Router>
   )
 }
 
