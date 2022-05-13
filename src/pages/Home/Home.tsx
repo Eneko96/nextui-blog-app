@@ -1,5 +1,5 @@
 import { Container, Input, Card, Row, Text, Spacer, Button, Textarea } from "@nextui-org/react"
-import { useState } from "react"
+import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import './styles.css'
 
@@ -17,10 +17,11 @@ export default function Home() {
     if (Object.keys(welcomeData).length === 2 && _diff.length === 0) setContinue(true)
   }
 
-  const handleSubmit = () => {
-    // create a hash of being welcomed and save it on localstorage
-    localStorage.setItem('welcomed', 'true')
-    navigate('Blog')
+  const handleSubmit = (evt: React.MouseEvent<HTMLButtonElement>) => {
+    evt.preventDefault()
+    // check evt form email is well written
+
+    // navigate('Blog')
   }
 
   return (

@@ -10,7 +10,7 @@ function App() {
     <Router>
       <Header />
       <Spacer y={3} />
-      <div style={{ transition: 'fade-in 500ms' }}>
+      <div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Shelf" element={<BookShelf />} />
